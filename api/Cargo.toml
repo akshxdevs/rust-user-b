@@ -11,6 +11,6 @@ serde = { version = "1", features = ["derive"] }
 tide = "0.16.0"
 hyper = { version = "1.6.0", features = ["full"] }
 store = { path = "../store" }
-auth = "0.1.0"
 chrono = { version = "0.4", features = ["serde"] }
 jsonwebtoken = "9.3.1"
+uuid = { version = "1.17.0", features = ["v4", "serde"] }

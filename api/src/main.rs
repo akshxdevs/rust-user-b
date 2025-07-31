@@ -6,7 +6,7 @@ mod routes;
 use axum::{routing::post, Router};
 use std::sync::{Arc, Mutex};    
 use std::net::SocketAddr;
-use routes::user::signup_route;
+use routes::user::{signup_route, signin_route};
 use store::store::Store;
 
 #[tokio::main(flavor = "multi_thread")]
@@ -19,6 +19,7 @@ async fn main() -> Result<(), std::io::Error> {
     // Pass state into Axum app
     let app = Router::new()
         .route("/register", post(signup_route))
+        .route("/login", post(signin_route))
         .with_state(store);
 
     let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
